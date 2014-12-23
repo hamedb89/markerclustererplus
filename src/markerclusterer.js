@@ -248,6 +248,7 @@ ClusterIcon.prototype.show = function () {
     var spriteV = parseInt(bp[1].trim(), 10);
     var pos = this.getPosFromLatLng_(this.center_);
     this.div_.style.cssText = this.createCss(pos);
+
     img = "<img src='" + this.url_ + "' style='position: absolute; top: " + spriteV + "px; left: " + spriteH + "px; ";
     if (!this.cluster_.getMarkerClusterer().enableRetinaIcons_) {
       img += "clip: rect(" + (-1 * spriteV) + "px, " + ((-1 * spriteH) + this.width_) + "px, " +
@@ -257,6 +258,11 @@ ClusterIcon.prototype.show = function () {
         img += "width: " + this.width_ + "px;" + "height: " + this.height_ + "px;";
     }
     img += "'>";
+
+    if(this.cluster_.getMarkerClusterer().useSvgClusterIcon_){
+      img = this.cluster_.getMarkerClusterer().svgClusterIcon_;
+    }
+
     this.div_.innerHTML = img + "<div style='" +
         "position: absolute;" +
         "top: " + this.anchorText_[0] + "px;" +
@@ -681,6 +687,11 @@ function MarkerClusterer(map, opt_markers, opt_options) {
   this.styles_ = opt_options.styles || [];
   this.title_ = opt_options.title || "";
   this.zoomOnClick_ = true;
+  this.useSvgClusterIcon_ = opt_options.useSvgClusterIcon || false;
+  this.svgClusterIcon_ = opt_options.svgClusterIcon || '<svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" class="clustericon-svg">\
+    <circle cx="250px" cy="250px" r="251px" />\
+    </svg>';
+
   if (opt_options.zoomOnClick !== undefined) {
     this.zoomOnClick_ = opt_options.zoomOnClick;
   }
