@@ -295,12 +295,11 @@ ClusterIcon.prototype.show = function () {
  */
 ClusterIcon.prototype.useStyle = function (sums) {
   this.sums_ = sums;
-  var index = Math.max(0, sums.index - 1);
-  index = Math.min(this.styles_.length - 1, index);
-  var style = this.styles_[index];
+  var index = sums.index;
+  var style = this.styles_[0];
   this.url_ = style.url;
-  this.height_ = style.height;
-  this.width_ = style.width;
+  this.height_ = style.height + style.height * index * 2;
+  this.width_ = style.width + style.width * index * 2;
   this.anchorText_ = style.anchorText || [0, 0];
   this.anchorIcon_ = style.anchorIcon || [parseInt(this.height_ / 2, 10), parseInt(this.width_ / 2, 10)];
   this.textColor_ = style.textColor || "black";
@@ -557,6 +556,7 @@ Cluster.prototype.updateIcon_ = function () {
     this.clusterIcon_.hide();
     return;
   }
+
 
   var numStyles = this.markerClusterer_.getStyles().length;
   var sums = this.markerClusterer_.getCalculator()(this.markers_, numStyles);
