@@ -1,7 +1,27 @@
 {
-  "name": "markerclustererplus",
-  "version": "2.1.2",
+  "author": {
+    "name": "Hamed Bahrami"
+  },
+  "name": "markerclusterer+",
+  "version": "1.0.0",
   "keywords": ["markerclustererplus", "google", "maps"],
+  "repository": {
+    "url": "https://github.com/hamedb89/markerclustererplus"
+  },
+  "main": "./src/markerclusterer",
+  "repository": {
+    "bus": "https://github.com/hamedb89/markerclustererplus/issues"
+  },
+  "_npmUser": {
+    "name": "hamedb89",
+    "email": "email@hamedbahrami.de"
+  },
+  "maintainers": [
+    {
+      "name": "hamedb89",
+      "email": "email@hamedbahrami.de"
+    }
+  ],
   "dependencies": {
   },
   "devDependencies": {

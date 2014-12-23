@@ -1672,3 +1672,4 @@ if (typeof String.prototype.trim !== 'function') {
   };
 }
 
+module.exports = MarkerClusterer;
