@@ -2,7 +2,7 @@
   "author": {
     "name": "Hamed Bahrami"
   },
-  "name": "markerclusterer+",
+  "name": "markerclustererplus",
   "version": "1.0.0",
   "keywords": ["markerclustererplus", "google", "maps"],
   "repository": {
@@ -22,6 +22,8 @@
       "email": "email@hamedbahrami.de"
     }
   ],
+  "private": true,
+  "license": "MIT",
   "dependencies": {
   },
   "devDependencies": {
